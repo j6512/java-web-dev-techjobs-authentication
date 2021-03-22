@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Entity;
 
 @Entity
-public class User {
+public class User extends AbstractEntity {
 
     private String username;
 
@@ -15,9 +15,9 @@ public class User {
 
     public User() {}
 
-    public User(String username, String passwordHash) {
+    public User(String username, String password) {
         this.username = username;
-        this.passwordHash = encoder.encode(passwordHash);
+        this.passwordHash = encoder.encode(password);
     }
 
     public String getUsername() {
